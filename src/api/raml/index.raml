@@ -120,6 +120,112 @@ traits:
       responses:
         204:
           body:
+################################################
+/issueTypes:
+  description: Issue types resource.
+  get:
+    is: [auth: { roles: 'any' }]
+    description: Retrieve the list of the issue types.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "id": "234kgj253452o8zkjg",
+                  "name": "Light",
+                  "description": "Broken street light"
+                },
+                {
+                  "id": "63kjh3453uiziu565",
+                  "name": "Manhole",
+                  "description": "Uncovered manhole cover"
+                },
+                ...
+              ]
+  post:
+    description: Create a new issue type.
+    body:
+      application/json:
+        example: |
+          {
+            "firstname": "Romain",
+            "lastname": "Terieur",
+            "phone": "+6624582",
+            "roles": [
+              "citizen"
+            ]
+          }
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {
+                "id": "54d8ae163fd30364605c81a4",
+                "firstname": "Romain",
+                "lastname": "Terieur",
+                "phone": "+6624582",
+                "roles": [
+                  "citizen"
+                ]
+              }
+
+  /{id}:
+    get:
+      is: [auth: {roles: 'any'} ]
+      description: Retrieve the details of a specific user.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "id": "54d8ae163fd30364605c81a4",
+                  "firstname": "Romain",
+                  "lastname": "Terieur",
+                  "phone": "+6624582",
+                  "roles": [
+                    "citizen"
+                  ]
+                }
+    put:
+      is: [auth: {roles: 'staff'} ]
+      description: Update the details of a specific user.
+      body:
+        application/json:
+          example: |
+            {
+              "firstname": "Romain",
+              "lastname": "Terieur",
+              "phone": "+6624582",
+              "roles": [
+                "citizen"
+              ]
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "id": "54d8ae163fd30364605c81a4",
+                  "firstname": "Romain",
+                  "lastname": "Terieur",
+                  "phone": "+6624582",
+                  "roles": [
+                    "citizen"
+                  ]
+                }
+    delete:
+      is: [auth: {roles: 'staff'} ]
+      description: Delete a specific user.
+      responses:
+        204:
+          body:
+          
+########################################################################
 
 /data:
   description: Data resource.
