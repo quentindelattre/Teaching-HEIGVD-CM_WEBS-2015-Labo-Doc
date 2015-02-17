@@ -120,7 +120,6 @@ traits:
       responses:
         204:
           body:
-################################################
 /issueTypes:
   description: Issue types resource.
   get:
@@ -150,12 +149,8 @@ traits:
       application/json:
         example: |
           {
-            "firstname": "Romain",
-            "lastname": "Terieur",
-            "phone": "+6624582",
-            "roles": [
-              "citizen"
-            ]
+            "name": "Oil",
+            "lastname": "Oil spilled on the street"
           }
     responses:
       201:
@@ -163,70 +158,51 @@ traits:
           application/json:
             example: |
               {
-                "id": "54d8ae163fd30364605c81a4",
-                "firstname": "Romain",
-                "lastname": "Terieur",
-                "phone": "+6624582",
-                "roles": [
-                  "citizen"
-                ]
+                "id": "43jk5hi4u689zhi73f",
+                "name": "Oil",
+                "lastname": "Oil spilled on the street"
               }
 
   /{id}:
     get:
       is: [auth: {roles: 'any'} ]
-      description: Retrieve the details of a specific user.
+      description: Retrieve the details of a specific issue type.
       responses:
         200:
           body:
             application/json:
               example: |
                 {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "firstname": "Romain",
-                  "lastname": "Terieur",
-                  "phone": "+6624582",
-                  "roles": [
-                    "citizen"
-                  ]
+                  "id": "234kgj253452o8zkjg",
+                  "name": "Light",
+                  "description": "Broken street light"
                 }
     put:
       is: [auth: {roles: 'staff'} ]
-      description: Update the details of a specific user.
+      description: Update the details of a specific issue type.
       body:
         application/json:
           example: |
             {
-              "firstname": "Romain",
-              "lastname": "Terieur",
-              "phone": "+6624582",
-              "roles": [
-                "citizen"
-              ]
-            }
+              "name": "Street light",
+              "description": "Broken street light"
+              }
       responses:
         200:
           body:
             application/json:
               example: |
                 {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "firstname": "Romain",
-                  "lastname": "Terieur",
-                  "phone": "+6624582",
-                  "roles": [
-                    "citizen"
-                  ]
+                  "id": "234kgj253452o8zkjg",
+                  "name": "Street light",
+                  "description": "Broken street light"
                 }
     delete:
       is: [auth: {roles: 'staff'} ]
-      description: Delete a specific user.
+      description: Delete a specific issue type.
       responses:
         204:
           body:
-          
-########################################################################
-
 /data:
   description: Data resource.
   /populate:
