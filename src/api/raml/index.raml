@@ -203,6 +203,31 @@ traits:
       responses:
         204:
           body:
+/actions:
+  description: Actions resource.
+  get:
+    is: [auth: { roles: 'staff' }]
+    description: Retrieve the list of all actions.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "id": "245uiz345iuz4323itu9",
+                  "author": "Terieur, Romain",
+                  "date": "2015-02-17",
+                  "actionType": "addComment"
+                },
+                {
+                  "id": "45iugt34867tz9g3z44",
+                  "author": "Terieur, Romain",
+                  "date": "2015-02-15",
+                  "actionType": "solveIssue"
+                },
+                ...
+              ]
 /data:
   description: Data resource.
   /populate:
