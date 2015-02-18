@@ -1,6 +1,6 @@
 # Smart City - Citizen Engagement - Doc Skeleton
 
-*Team : Richard Amman, Quentin de Lattre*
+*Team :* Richard Amman, Quentin de Lattre
 
 *Documentation of the API of the Citizen Engagement*
 
