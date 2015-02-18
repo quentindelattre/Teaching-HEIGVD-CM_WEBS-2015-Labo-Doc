@@ -1,5 +1,7 @@
 # Smart City - Citizen Engagement - Doc Skeleton
 
+*Team : Richard Amman, Quentin de Lattre*
+
 *Documentation of the API of the Citizen Engagement*
 
 This is a generator that compiles [Markdown][md] and [RAML][raml] files into a
