@@ -304,7 +304,6 @@ traits:
                   "tags": "fireintheplace",
                   "action": "forthemomentnothing",
                 }
-
   /{id}:
     get:
       is: [auth: {roles: 'any'} ]
@@ -332,7 +331,6 @@ traits:
                   "tags": "fireintheplace",
                   "action": "forthemomentnothing",
                 }
-
     put:
       is: [auth: {roles: 'staff'} ]
       description: Update the details of a specific issues.
@@ -407,6 +405,51 @@ traits:
                   "tags": "fireintheplace",
                   "action": "forthemomentnothing",
                 }
+    post:
+      description: Create a new action on an issue.
+      body:
+        application/json:
+          example: |
+            {
+                    "author": "oneuser",
+                    "type": "braked lamp",
+                    "description": "lorem ipsum",
+                    "place": {
+                      "S12368°"
+                      "N98723°"
+                    },
+                    "status": "resolved",
+                    "comments": {
+                      "author": "12863971",
+                      "date": "DD.MM.DDDD",
+                      "content": "lorem ipsum"
+                    },
+                    "tags": "fireintheplace",
+                    "action": "forthemomentnothing",
+                  }
+      responses:
+        201:
+          body:
+            application/json:
+              example: |
+                {
+                    "id": "54d8ae163fd30364605c81a4",
+                    "author": "oneuser",
+                    "type": "braked lamp",
+                    "description": "lorem ipsum",
+                    "place": {
+                      "S12368°"
+                      "N98723°"
+                    },
+                    "status": "resolved",
+                    "comments": {
+                      "author": "12863971",
+                      "date": "DD.MM.DDDD",
+                      "content": "lorem ipsum"
+                    },
+                    "tags": "fireintheplace",
+                    "action": "forthemomentnothing",
+                  }
 /data:
   description: Data resource.
   /populate:
