@@ -150,7 +150,7 @@ traits:
         example: |
           {
             "name": "Oil",
-            "lastname": "Oil spilled on the street"
+            "description": "Oil spilled on the street"
           }
     responses:
       201:
@@ -160,7 +160,7 @@ traits:
               {
                 "id": "43jk5hi4u689zhi73f",
                 "name": "Oil",
-                "lastname": "Oil spilled on the street"
+                "description": "Oil spilled on the street"
               }
 
   /{id}:
@@ -217,13 +217,13 @@ traits:
                 {
                   "id": "245uiz345iuz4323itu9",
                   "author": "Terieur, Romain",
-                  "date": "2015-02-17",
+                  "date": "2015-02-20T08:25:46.822Z",
                   "actionType": "addComment"
                 },
                 {
                   "id": "45iugt34867tz9g3z44",
                   "author": "Terieur, Romain",
-                  "date": "2015-02-15",
+                  "date": "2015-02-20T08:25:46.822Z",
                   "actionType": "solveIssue"
                 },
                 ...
@@ -240,23 +240,36 @@ traits:
             example: |
               [
                 {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "author": "oneuser",
-                  "type": "braked lamp",
-                  "description": "lorem ipsum",
-                  "place": {
-                    "S12368°"
-                    "N98723°"
+                  "id": "54f0560821a95f0e00228131",
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
+                  "firstname": "Benoit",
+                  "lastname": "Terieur"
                   },
-                  "status": "resolved",
-                  "comments": {
-                    "author": "12863971",
-                    "date": "DD.MM.DDDD",
-                    "content": "lorem ipsum"
+                  "issuetype": {
+                  "_id": "54f0551021a95f0e0022812e",
+                  "name": "Street Light",
+                  "description": "Broken Street Light"
                   },
-                  "tags": "fireintheplace",
-                  "action": "forthemomentnothing",
-                }
+                  "updatedOn": "2015-02-27T11:37:38.343Z",
+                  "place": "46.778435, 6.648295",
+                  "issueStatus": [
+                  "Reported"
+                  ],
+                  "comments": [],
+                  "tags": [
+                  "pending"
+                  ],
+                  "actions": [
+                  {
+                  "_id": "54f0565021a95f0e00228132",
+                  "actionType": "Reported Issue",
+                  "author": "54f0549c21a95f0e00228125",
+                  "issueId": "54f0560821a95f0e00228131",
+                  "date": "2015-02-27T11:37:38.342Z"
+                  }
+                  ]
+                },
                 ...
               ]
   post:
@@ -265,45 +278,53 @@ traits:
       application/json:
         example: |
           {
-                  "author": "oneuser",
-                  "type": "braked lamp",
-                  "description": "lorem ipsum",
-                  "place": {
-                    "S12368°"
-                    "N98723°"
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
                   },
-                  "status": "resolved",
-                  "comments": {
-                    "author": "12863971",
-                    "date": "DD.MM.DDDD",
-                    "content": "lorem ipsum"
-                  },
-                  "tags": "fireintheplace",
-                  "action": "forthemomentnothing",
-                }
+                  "place": "46.778435, 6.648295",
+                  "issueStatus": [
+                  "Reported"
+                  ],
+                  "actions": [
+                },
+                ...
     responses:
       201:
         body:
           application/json:
             example: |
               {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "author": "oneuser",
-                  "type": "braked lamp",
-                  "description": "lorem ipsum",
-                  "place": {
-                    "S12368°"
-                    "N98723°"
+                  "id": "54f0560821a95f0e00228131",
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
+                  "firstname": "Benoit",
+                  "lastname": "Terieur"
                   },
-                  "status": "resolved",
-                  "comments": {
-                    "author": "12863971",
-                    "date": "DD.MM.DDDD",
-                    "content": "lorem ipsum"
+                  "issuetype": {
+                  "_id": "54f0551021a95f0e0022812e",
+                  "name": "Street Light",
+                  "description": "Broken Street Light"
                   },
-                  "tags": "fireintheplace",
-                  "action": "forthemomentnothing",
-                }
+                  "updatedOn": "2015-02-27T11:37:38.343Z",
+                  "place": "46.778435, 6.648295",
+                  "issueStatus": [
+                  "Reported"
+                  ],
+                  "comments": [],
+                  "tags": [
+                  "pending"
+                  ],
+                  "actions": [
+                  {
+                  "_id": "54f0565021a95f0e00228132",
+                  "actionType": "Reported Issue",
+                  "author": "54f0549c21a95f0e00228125",
+                  "issueId": "54f0560821a95f0e00228131",
+                  "date": "2015-02-27T11:37:38.342Z"
+                  }
+                  ]
+                },
+                ...
   /{id}:
     get:
       is: [auth: {roles: 'any'} ]
@@ -314,23 +335,32 @@ traits:
             application/json:
               example: |
                 {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "author": "oneuser",
-                  "type": "braked lamp",
-                  "description": "lorem ipsum",
-                  "place": {
-                    "S12368°"
-                    "N98723°"
+                  "id": "54f0560821a95f0e00228131",
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
+                  "firstname": "Benoit",
+                  "lastname": "Terieur"
                   },
-                  "status": "resolved",
-                  "comments": {
-                    "author": "12863971",
-                    "date": "DD.MM.DDDD",
-                    "content": "lorem ipsum"
-                  },
-                  "tags": "fireintheplace",
-                  "action": "forthemomentnothing",
-                }
+                  "updatedOn": "2015-02-27T11:37:38.343Z",
+                  "place": "46.778435, 6.648295",
+                  "issueStatus": [
+                  "Reported"
+                  ],
+                  "comments": [],
+                  "tags": [
+                  "pending"
+                  ],
+                  "actions": [
+                  {
+                  "_id": "54f0565021a95f0e00228132",
+                  "actionType": "Reported Issue",
+                  "author": "54f0549c21a95f0e00228125",
+                  "issueId": "54f0560821a95f0e00228131",
+                  "date": "2015-02-27T11:37:38.342Z"
+                  }
+                  ]
+                },
+
     put:
       is: [auth: {roles: 'staff'} ]
       description: Update the details of a specific issues.
@@ -338,46 +368,62 @@ traits:
         application/json:
           example: |
             {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "author": "oneuser",
-                  "type": "braked lamp",
-                  "description": "lorem ipsum",
-                  "place": {
-                    "S12368°"
-                    "N98723°"
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
+                  "firstname": "Benoit",
+                  "lastname": "Terieur"
                   },
-                  "status": "resolved",
-                  "comments": {
-                    "author": "12863971",
-                    "date": "DD.MM.DDDD",
-                    "content": "lorem ipsum"
-                  },
-                  "tags": "fireintheplace",
-                  "action": "forthemomentnothing",
-                }
+                  "place": "46.778435, 6.648295",
+                  "issueStatus": [
+                  "Reported"
+                  ],
+                  "comments": [],
+                  "tags": [
+                  "pending"
+                  ],
+                  "actions": [
+                  {
+                  "_id": "54f0565021a95f0e00228132",
+                  "actionType": "Reported Issue",
+                  "author": "54f0549c21a95f0e00228125",
+                  "issueId": "54f0560821a95f0e00228131",
+                  "date": "2015-02-27T11:37:38.342Z"
+                  }
+                  ]
+                },
+
       responses:
         200:
           body:
             application/json:
               example: |
                 {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "author": "oneuserchanged",
-                  "type": "braked lamp",
-                  "description": "lorem ipsum",
-                  "place": {
-                    "S12368°"
-                    "N98723°"
+                  "id": "54f0560821a95f0e00228131",
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
+                  "firstname": "Benoit",
+                  "lastname": "Terieur"
                   },
-                  "status": "resolved",
-                  "comments": {
-                    "author": "12863971",
-                    "date": "DD.MM.DDDD",
-                    "content": "lorem ipsum"
-                  },
-                  "tags": "fireintheplace",
-                  "action": "forthemomentnothing",
-                }
+                  "updatedOn": "2015-02-27T11:37:38.343Z",
+                  "place": "46.778435, 6.648295",
+                  "issueStatus": [
+                  "Reported"
+                  ],
+                  "comments": [],
+                  "tags": [
+                  "pending"
+                  ],
+                  "actions": [
+                  {
+                  "_id": "54f0565021a95f0e00228132",
+                  "actionType": "Reported Issue",
+                  "author": "54f0549c21a95f0e00228125",
+                  "issueId": "54f0560821a95f0e00228131",
+                  "date": "2015-02-27T11:37:38.342Z"
+                  }
+                  ]
+                },
+
   /{id}/actions:
     get:
       is: [auth: {roles: 'staff'} ]
@@ -388,68 +434,65 @@ traits:
             application/json:
               example: |
                 {
-                  "id": "54d8ae163fd30364605c81a4",
-                  "author": "oneuser",
-                  "type": "braked lamp",
-                  "description": "lorem ipsum",
-                  "place": {
-                    "S12368°"
-                    "N98723°"
+                  "id": "54f0560821a95f0e00228131",
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
+                  "firstname": "Benoit",
+                  "lastname": "Terieur"
                   },
-                  "status": "resolved",
-                  "comments": {
-                    "author": "12863971",
-                    "date": "DD.MM.DDDD",
-                    "content": "lorem ipsum"
-                  },
-                  "tags": "fireintheplace",
-                  "action": "forthemomentnothing",
-                }
+                  "updatedOn": "2015-02-27T11:37:38.343Z",
+                  "place": "46.778435, 6.648295",
+                  "issueStatus": [
+                  "Reported"
+                  ],
+                  "comments": [],
+                  "tags": [
+                  "pending"
+                  ],
+                  "actions": [
+                  {
+                  "_id": "54f0565021a95f0e00228132",
+                  "actionType": "Reported Issue",
+                  "author": "54f0549c21a95f0e00228125",
+                  "issueId": "54f0560821a95f0e00228131",
+                  "date": "2015-02-27T11:37:38.342Z"
+                  }
+                  ]
+                },
+
     post:
       description: Create a new action on an issue.
       body:
         application/json:
           example: |
             {
-                    "author": "oneuser",
-                    "type": "braked lamp",
-                    "description": "lorem ipsum",
-                    "place": {
-                      "S12368°"
-                      "N98723°"
-                    },
-                    "status": "resolved",
-                    "comments": {
-                      "author": "12863971",
-                      "date": "DD.MM.DDDD",
-                      "content": "lorem ipsum"
-                    },
-                    "tags": "fireintheplace",
-                    "action": "forthemomentnothing",
+                  "author": {
+                  "_id": "54f0549c21a95f0e00228125",
+                  },
+                  "actions": [
+                  {
+                  "actionType": "Reported Issue",
                   }
+                  ]
+                },
+
       responses:
         201:
           body:
             application/json:
               example: |
                 {
-                    "id": "54d8ae163fd30364605c81a4",
-                    "author": "oneuser",
-                    "type": "braked lamp",
-                    "description": "lorem ipsum",
-                    "place": {
-                      "S12368°"
-                      "N98723°"
-                    },
-                    "status": "resolved",
-                    "comments": {
-                      "author": "12863971",
-                      "date": "DD.MM.DDDD",
-                      "content": "lorem ipsum"
-                    },
-                    "tags": "fireintheplace",
-                    "action": "forthemomentnothing",
+                  "actions": [
+                  {
+                  "_id": "54f0565021a95f0e00228132",
+                  "actionType": "Reported Issue",
+                  "author": "54f0549c21a95f0e00228125",
+                  "issueId": "54f0560821a95f0e00228131",
+                  "date": "2015-02-27T11:37:38.342Z"
                   }
+                  ]
+                },
+
 /data:
   description: Data resource.
   /populate:

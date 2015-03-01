@@ -1,5 +1,5 @@
 ---
-title: Welcome
+title: Welcome buddys
 template: layout.jade
 menuIndex: 1
 ---
