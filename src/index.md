@@ -8,7 +8,7 @@ menuIndex: 1
 
 ## Citizen Engagement
 
-Welcome on board! You are about to discover the wonderful world where people are participating
+Welcome on board ! You are about to discover the wonderful world where people are participating
 in the city life everyday.
 
 Each citizen is able to submit any issue he disovers in the city and then a staff member can
